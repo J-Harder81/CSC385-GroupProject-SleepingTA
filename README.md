@@ -1,13 +1,13 @@
 # CSC385-GroupProject-SleepingTA
 This group project was collaborative effort to create a multithreaded C Program simulating the classic Sleeping Teaching Assistant (TA) concurrency problem. It models a TA helping students in a computer lab, using semaphores and mutexes to coordinate access to limited hallway chairs and ensure orderly help sessions.
 
-**Overview**
+## Overview
 TA Behavior: Sleeps until a student arrives. Helps one student at a time in FIFO order.
 Student Behavior: Programs independently for a random amount of time, then seeks help. If chairs are full, they return to programming and return later.
 Chairs: Limited to NUM_SEAT (default: 3). Students wait here if the TA is busy.
 Termination: Simulation ends when all students have been helped once (or repeatedly, depending on the ONE_AND_DONE flag).
 
-**Concurrency Model**
+## Concurrency Model
  --------------------------------------------------------------
 |      Component     |                Mechanism                |
  --------------------------------------------------------------
@@ -24,15 +24,15 @@ Termination: Simulation ends when all students have been helped once (or repeate
 | Simulation Control | atomic_int running, atomic_int helped[] |
  --------------------------------------------------------------
 
-**Compilation & Execution**
+## Compilation & Execution
 Compile: gcc -pthread -o sleeping_ta sleeping_ta.c
 Run: ./sleeping_ta
 
-**Configuration**
+## Configuration
 You can toggle whether students leave after one help session or keep re-queuing by modifying the ONE_AND_DONE macro:
 #define ONE_AND_DONE 1 // 1 = leave after help, 0 = re-queue
 
-**Sample Output**
+## Sample Output
 Please enter the number of students being helped.
 
 5
@@ -47,20 +47,20 @@ Student 2: Helped
 ...
 Simulation ended.
 
-**Cleanup**
+## Cleanup
 All semaphores, mutexes, and dynamically allocated memory are properly destroyed or freed at the end of the simulation
 
-**File Structure**
+## File Structure
 README.md - Project Documentation
 SLEEPING TA 3.ppt - Powerpoint Presentation explaining the Sleeping TA problem and solution
 sleeping-ta.c - Main simulation source code in C language
 
-**Concepts Demonstrated**
+## Concepts Demonstrated
 Producer-consumer synchronization
 Circular queue management
 Thread-safe shared state
 Use of semaphores and mutexes
 Atomic operations for thread coordination
 
-**Authors**
+## Authors
 This project was created by Donald, Juliana, and Justin for our CSC385 Operating System Architecture class.
